@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Danh Sách Sản Phẩm</p>
+    <table border="1">
+        <tr>
+            <th>Mã SP</th>
+            <th>Tên SP</th>
+            <th>Số Lượng</th>
+            <th>Chọn</th>
+        </tr>
+        <% for(let i=0; i < sanPham.length ;i++){ %>
+            <tr>
+                <td> <%= sanPham[i].maSP %> </td>
+                <td> <%= sanPham[i].tenSP %> </td>
+                <td> <%= sanPham[i].soLuong %> </td>
+                <td>
+                    <form action="/deleteSanPham" method="POST">
+                        <input type="hidden" name="maSP" value="<%= sanPham[i].maSP %>">
+                        <input type="submit" value="Xóa">
+                    </form>
+                </td>
+            </tr>
+        <%}%>
+    </table>
+</body>
+</html>
